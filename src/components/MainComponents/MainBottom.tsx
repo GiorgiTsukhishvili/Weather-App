@@ -3,7 +3,7 @@ import { WeatherContext } from "../../context/WeatherContext";
 
 import "../../styles/MainBottom.scss";
 
-const MainBottom = () => {
+const MainBottom: React.FC = () => {
   const { data } = useContext(WeatherContext);
 
   return (

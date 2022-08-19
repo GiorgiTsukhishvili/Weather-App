@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import MainTop from "./MainComponents/MainTop";
 import MainBottom from "./MainComponents/MainBottom";
-import Search from "./Search";
+import AppFunctionals from "./MainFunctionality/AppFunctionals";
 
 import { WeatherContext } from "../context/WeatherContext";
 
@@ -13,7 +13,7 @@ const Main: React.FC = () => {
 
   return (
     <div className="app">
-      <Search />
+      <AppFunctionals />
       <div className="app__container">
         <MainTop />
 
