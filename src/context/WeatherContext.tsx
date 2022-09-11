@@ -15,26 +15,30 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
     wind: "",
   });
 
-  const fetchData = (value: string) => {
-    const data = axios
-      .get(
+  const [error, setError] = useState<boolean>(false);
+
+  const fetchData = async (value: string) => {
+    try {
+      const data = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${value}&units=imperial&appid=7257b3fdaf6f41d0ba6a501a08aaecc3`
-      )
-      .then((res) =>
-        setData({
-          name: res.data.name,
-          temperature: res.data.main.temp,
-          clouds: res.data.weather[0].main,
-          feelsLike: res.data.main.feels_like,
-          humidity: res.data.main.humidity,
-          wind: res.data.wind.speed,
-        })
-      )
-      .catch((err) => console.log(err));
+      );
+
+      setData({
+        name: data.data.name,
+        temperature: data.data.main.temp,
+        clouds: data.data.weather[0].main,
+        feelsLike: data.data.main.feels_like,
+        humidity: data.data.main.humidity,
+        wind: data.data.wind.speed,
+      });
+      setError(false);
+    } catch (err) {
+      setError(true);
+    }
   };
 
   return (
-    <WeatherContext.Provider value={{ fetchData, data }}>
+    <WeatherContext.Provider value={{ fetchData, data, error }}>
       {children}
     </WeatherContext.Provider>
   );

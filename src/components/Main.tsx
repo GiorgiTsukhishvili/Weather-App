@@ -8,16 +8,24 @@ import { WeatherContext } from "../context/WeatherContext";
 import "../styles/Main.scss";
 
 const Main: React.FC = () => {
-  const { data } = useContext(WeatherContext);
+  const { data, error } = useContext(WeatherContext);
 
   return (
     <div className="app">
       <AppFunctionals />
-      <div className="app__container">
-        <MainTop />
+      {error ? (
+        <div className="app__error">
+          <h1>
+            404 City Not Found, <br /> Please Enter Different City
+          </h1>
+        </div>
+      ) : (
+        <div className="app__container">
+          <MainTop />
 
-        {data.wind !== "" ? <MainBottom /> : ""}
-      </div>
+          {data.wind !== "" ? <MainBottom /> : ""}
+        </div>
+      )}
     </div>
   );
 };

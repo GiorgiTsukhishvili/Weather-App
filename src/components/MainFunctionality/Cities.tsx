@@ -33,7 +33,7 @@ const Cities: React.FC = () => {
           <h1 onClick={getData}>Vienna</h1>
           <h1 onClick={getData}>Tokyo</h1>
           <h1 onClick={getData}>London</h1>
-          <h1 onClick={getData}>Kiev</h1>
+          <h1 onClick={getData}>Kyiv</h1>
         </div>
       ) : (
         ""
