@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { WeatherContext } from "../../context/WeatherContext";
 
 import "../../styles/MainTop.scss";
+import Gifs from "../Gifs";
 
 const MainTop: React.FC = () => {
   const { data } = useContext(WeatherContext);
@@ -22,6 +23,7 @@ const MainTop: React.FC = () => {
         <p className="app__container__top__description__paragraph">
           {data.clouds}
         </p>
+        {data.clouds !== "" && <Gifs />}
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
 import MainTop from "./MainComponents/MainTop";
 import MainBottom from "./MainComponents/MainBottom";
 import AppFunctionals from "./MainFunctionality/AppFunctionals";

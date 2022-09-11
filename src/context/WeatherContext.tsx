@@ -1,19 +1,7 @@
 import React, { createContext, ReactNode, useState } from "react";
 import axios from "axios";
 
-interface Data {
-  name: string;
-  temperature: string;
-  clouds: string;
-  feelsLike: string;
-  humidity: string;
-  wind: string;
-}
-
-interface WeatherContextThings {
-  fetchData: (value: string) => void;
-  data: Data;
-}
+import { Data, WeatherContextThings } from "../interfaces/contextInterface";
 
 export const WeatherContext = createContext({} as WeatherContextThings);
 

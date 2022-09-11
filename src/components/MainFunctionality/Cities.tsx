@@ -1,11 +1,10 @@
-import React, { useRef, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { WeatherContext } from "../../context/WeatherContext";
 
 import "../../styles/Cities.scss";
 
 const Cities: React.FC = () => {
   const [toggle, setToggle] = useState<boolean>(false);
-  const divRef = useRef<HTMLDivElement>(null);
 
   const { fetchData } = useContext(WeatherContext);
 
