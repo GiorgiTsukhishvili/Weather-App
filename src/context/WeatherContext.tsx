@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useState } from "react";
+import React, { createContext, ReactNode, useContext, useState } from "react";
 import axios from "axios";
 
 import { Data, WeatherContextThings } from "../interfaces/contextInterface";
@@ -43,3 +43,5 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
     </WeatherContext.Provider>
   );
 };
+
+export const useWeatherContext = () => useContext(WeatherContext);

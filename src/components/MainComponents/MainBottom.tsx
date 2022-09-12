@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import { WeatherContext } from "../../context/WeatherContext";
+import React from "react";
+import { useWeatherContext } from "../../context/WeatherContext";
 
 import "../../styles/MainBottom.scss";
 
 const MainBottom: React.FC = () => {
-  const { data } = useContext(WeatherContext);
+  const { data } = useWeatherContext();
 
   return (
     <div className="app__container__bottom">

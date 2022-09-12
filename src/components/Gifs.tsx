@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { WeatherContext } from "../context/WeatherContext";
+import { useWeatherContext } from "../context/WeatherContext";
 import rain from "../assets/gifs/rain.gif";
 import clouds from "../assets/gifs/clouds.gif";
 import sun from "../assets/gifs/sun.gif";
 
 const Gifs = () => {
-  const { data } = useContext(WeatherContext);
+  const { data } = useWeatherContext();
   const [gif, setGif] = useState<string>("");
 
   useEffect(() => {

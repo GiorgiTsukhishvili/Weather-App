@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import MainTop from "./MainComponents/MainTop";
 import MainBottom from "./MainComponents/MainBottom";
 import AppFunctionals from "./MainFunctionality/AppFunctionals";
 
-import { WeatherContext } from "../context/WeatherContext";
+import { useWeatherContext } from "../context/WeatherContext";
 
 import "../styles/Main.scss";
 
 const Main: React.FC = () => {
-  const { data, error } = useContext(WeatherContext);
+  const { data, error } = useWeatherContext();
 
   return (
     <div className="app">

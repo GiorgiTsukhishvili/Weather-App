@@ -1,10 +1,10 @@
-import React, { useRef, useContext } from "react";
-import { WeatherContext } from "../../context/WeatherContext";
+import React, { useRef } from "react";
+import { useWeatherContext } from "../../context/WeatherContext";
 
 import "../../styles/Search.scss";
 
 const Search: React.FC = () => {
-  const { fetchData } = useContext(WeatherContext);
+  const { fetchData } = useWeatherContext();
 
   const inputRef = useRef<HTMLInputElement>(null);
 

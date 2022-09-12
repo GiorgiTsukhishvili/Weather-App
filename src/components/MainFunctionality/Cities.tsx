@@ -1,12 +1,12 @@
-import React, { useState, useContext } from "react";
-import { WeatherContext } from "../../context/WeatherContext";
+import React, { useState } from "react";
+import { useWeatherContext } from "../../context/WeatherContext";
 
 import "../../styles/Cities.scss";
 
 const Cities: React.FC = () => {
   const [toggle, setToggle] = useState<boolean>(false);
 
-  const { fetchData } = useContext(WeatherContext);
+  const { fetchData } = useWeatherContext();
 
   const doToggle = (): void => {
     setToggle((prevToggle) => !prevToggle);
