@@ -23,7 +23,7 @@ const Main: React.FC = () => {
         <div className="app__container">
           <MainTop />
 
-          {data.wind !== "" ? <MainBottom /> : ""}
+          {data.wind !== "" && <MainBottom />}
         </div>
       )}
     </div>

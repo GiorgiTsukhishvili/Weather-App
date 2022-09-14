@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { Data, WeatherContextThings } from "../interfaces/contextInterface";
 
-export const WeatherContext = createContext({} as WeatherContextThings);
+const WeatherContext = createContext({} as WeatherContextThings);
 
 export const WeatherProvider = ({ children }: { children: ReactNode }) => {
   const [data, setData] = useState<Data>({

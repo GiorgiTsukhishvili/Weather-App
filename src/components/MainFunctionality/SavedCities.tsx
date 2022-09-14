@@ -1,15 +1,13 @@
 import React from "react";
 import { useWeatherContext } from "../../context/WeatherContext";
-import { defaultCities } from "../../utils/defaultCities";
+import { useCitiesLocalContext } from "../../context/CitiesLocalContext";
 import useToggle from "../../hooks/useToggle";
 
 import { v4 } from "uuid";
 
-import "../../styles/Cities.scss";
-
-const Cities: React.FC = () => {
+const SavedCities = () => {
   const { toggle, doToggle } = useToggle();
-
+  const { savedCities } = useCitiesLocalContext();
   const { fetchData } = useWeatherContext();
 
   const getData = (e: React.MouseEvent<HTMLElement>): void => {
@@ -21,20 +19,28 @@ const Cities: React.FC = () => {
   return (
     <div className="cities">
       <h1 className="cities__toggle" onClick={doToggle}>
-        Show Cities
+        Show Saved Cities
       </h1>
 
-      {toggle && (
+      {toggle ? (
         <div className="cities__hidden">
-          {defaultCities.map((citie) => (
-            <h1 onClick={getData} key={v4()}>
-              {citie}
-            </h1>
-          ))}
+          {savedCities.map((citie) => {
+            return citie === "No City Saved" ? (
+              <h1 key={v4()} onClick={doToggle}>
+                {citie}
+              </h1>
+            ) : (
+              <h1 onClick={getData} key={v4()}>
+                {citie}
+              </h1>
+            );
+          })}
         </div>
+      ) : (
+        ""
       )}
     </div>
   );
 };
 
-export default Cities;
+export default SavedCities;

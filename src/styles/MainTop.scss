@@ -1,25 +1,36 @@
 .app__container__top {
-  width: 100%;
-  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
 
-  &__location {
-    &__paragraph {
-      font-size: 1.6rem;
+  &__left {
+    width: 80%;
+    margin: 1rem auto;
+
+    &__location {
+      &__paragraph {
+        font-size: 1.6rem;
+      }
+    }
+
+    &__temp {
+      &__header {
+        font-size: 6rem;
+      }
+    }
+
+    &__description {
+      &__paragraph {
+        position: absolute;
+
+        padding-top: 100px;
+        font-size: 2.5rem;
+      }
     }
   }
 
-  &__temp {
-    &__header {
-      font-size: 6rem;
-    }
-  }
-
-  &__description {
-    &__paragraph {
-      position: absolute;
-
-      padding-top: 100px;
-      font-size: 2.5rem;
-    }
+  &__right {
+    font-size: 150%;
+    cursor: pointer;
+    height: 20px;
   }
 }
