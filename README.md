@@ -14,6 +14,6 @@ Package.json is also provided.
 
 ## Images
 
-![5](https://user-images.githubusercontent.com/104715456/185669502-cb0d6f68-68fd-4fa7-9c39-bd7fa04a573d.PNG)
+![1](https://user-images.githubusercontent.com/104715456/190129832-04290be4-5aa0-4980-80ab-5c910f40328d.PNG)
 
-![6](https://user-images.githubusercontent.com/104715456/185669517-c02f43f1-3605-41b1-a205-2defc6343f76.PNG)
+![2](https://user-images.githubusercontent.com/104715456/190129844-bb5602be-c80c-46a7-b027-7e4e1691740f.PNG)
