@@ -7,7 +7,7 @@ import { v4 } from "uuid";
 
 const SavedCities = () => {
   const { toggle, doToggle } = useToggle();
-  const { savedCities } = useCitiesLocalContext();
+  const { savedCities, removeCitie } = useCitiesLocalContext();
   const { fetchData } = useWeatherContext();
 
   const getData = (e: React.MouseEvent<HTMLElement>): void => {
@@ -22,7 +22,7 @@ const SavedCities = () => {
         Show Saved Cities
       </h1>
 
-      {toggle ? (
+      {toggle && (
         <div className="cities__hidden">
           {savedCities.map((citie) => {
             return citie === "No City Saved" ? (
@@ -30,14 +30,15 @@ const SavedCities = () => {
                 {citie}
               </h1>
             ) : (
-              <h1 onClick={getData} key={v4()}>
-                {citie}
-              </h1>
+              <div className="cities__hidden__cities">
+                <h1 onClick={getData} key={v4()}>
+                  {citie}
+                </h1>
+                <p onClick={() => removeCitie(citie)}>X</p>
+              </div>
             );
           })}
         </div>
-      ) : (
-        ""
       )}
     </div>
   );
