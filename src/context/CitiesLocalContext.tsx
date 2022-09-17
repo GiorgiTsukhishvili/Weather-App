@@ -1,5 +1,5 @@
 import { useState, createContext, ReactNode, useContext } from "react";
-import { CitiesLocalContextProps } from "../utils/citiesLocalint";
+import { CitiesLocalContextProps } from "../interfaces/citiesLocalint";
 
 const CitiesLocalContext = createContext({} as CitiesLocalContextProps);
 
@@ -19,15 +19,28 @@ export const CitiesLocalProvider = ({ children }: { children: ReactNode }) => {
       ? [...filteredCities, citie]
       : filteredCities;
 
-    console.log(filteredCities, newCities);
-
     localStorage.setItem("cities", JSON.stringify([...newCities, citie]));
 
     setSavedCities([...newCities]);
   };
 
+  const removeCitie = (citie: string) => {
+    const filteredCities = savedCities.filter((item) => item !== citie);
+
+    if (filteredCities.length === 0) {
+      localStorage.setItem("cities", JSON.stringify(["No City Saved"]));
+      filteredCities.push("No City Saved");
+    } else {
+      localStorage.setItem("cities", JSON.stringify(filteredCities));
+    }
+
+    setSavedCities(filteredCities);
+  };
+
   return (
-    <CitiesLocalContext.Provider value={{ savedCities, saveCities }}>
+    <CitiesLocalContext.Provider
+      value={{ removeCitie, savedCities, saveCities }}
+    >
       {children}
     </CitiesLocalContext.Provider>
   );
