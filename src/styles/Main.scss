@@ -6,6 +6,15 @@
   background-color: rgba(0, 0, 0, 0.3);
   color: white;
 
+  &__loading {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   &::before {
     content: "";
     background: url("../assets/imgs/image.jpg") no-repeat center center/cover;

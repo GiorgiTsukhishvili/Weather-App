@@ -2,18 +2,21 @@ import React from "react";
 import MainTop from "./MainComponents/MainTop";
 import MainBottom from "./MainComponents/MainBottom";
 import AppFunctionals from "./MainFunctionality/AppFunctionals";
+import loadingGif from "../assets/gifs/loader.gif";
 
 import { useWeatherContext } from "../context/WeatherContext";
 
 import "../styles/Main.scss";
 
 const Main: React.FC = () => {
-  const { data, error } = useWeatherContext();
+  const { data, error, loading } = useWeatherContext();
 
   return (
     <div className="app">
       <AppFunctionals />
-      {error ? (
+      {loading ? (
+        <img src={loadingGif} alt="Loading" className="app__loading" />
+      ) : error ? (
         <div className="app__error">
           <h1>
             404 City Not Found, <br /> Please Enter Different City
