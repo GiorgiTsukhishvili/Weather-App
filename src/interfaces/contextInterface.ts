@@ -11,4 +11,5 @@ export interface WeatherContextThings {
   fetchData: (value: string) => void;
   data: Data;
   error: boolean;
+  loading: boolean;
 }
