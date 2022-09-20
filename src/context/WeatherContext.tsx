@@ -37,6 +37,7 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
       setLoading(false);
     } catch (err) {
       setError(true);
+      setLoading(false);
     }
   };
 
