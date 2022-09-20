@@ -3,6 +3,7 @@ import MainTop from "./MainComponents/MainTop";
 import MainBottom from "./MainComponents/MainBottom";
 import AppFunctionals from "./MainFunctionality/AppFunctionals";
 import loadingGif from "../assets/gifs/loader.gif";
+import Error from "../assets/gifs/thunder.gif";
 
 import { useWeatherContext } from "../context/WeatherContext";
 
@@ -21,6 +22,7 @@ const Main: React.FC = () => {
           <h1>
             404 City Not Found, <br /> Please Enter Different City
           </h1>
+          <img src={Error} alt="Thunder" />
         </div>
       ) : (
         <div className="app__container">
