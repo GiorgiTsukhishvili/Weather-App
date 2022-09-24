@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { useWeatherContext } from "../../context/WeatherContext";
 
 import "../../styles/Search.scss";
@@ -6,12 +6,14 @@ import "../../styles/Search.scss";
 const Search: React.FC = () => {
   const { fetchData } = useWeatherContext();
 
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [search, setSearch] = useState<string>("");
 
   const submitForm = (e: React.FormEvent) => {
     e.preventDefault();
-    fetchData(inputRef.current!.value);
-    inputRef.current!.value = "";
+    if (search.trim().length !== 0) {
+      fetchData(search);
+    }
+    setSearch("");
   };
 
   return (
@@ -19,9 +21,10 @@ const Search: React.FC = () => {
       <form onSubmit={(e) => submitForm(e)}>
         <input
           type="text"
-          ref={inputRef}
+          value={search}
           placeholder="Search for Location"
           className="search__input"
+          onChange={(e) => setSearch(e.target.value)}
         />
       </form>
     </div>
