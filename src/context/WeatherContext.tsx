@@ -21,17 +21,17 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
   const fetchData = async (value: string) => {
     try {
       setLoading(true);
-      const data = await axios.get(
+      const { data } = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${value}&units=imperial&appid=7257b3fdaf6f41d0ba6a501a08aaecc3`
       );
 
       setData({
-        name: data.data.name,
-        temperature: data.data.main.temp,
-        clouds: data.data.weather[0].main,
-        feelsLike: data.data.main.feels_like,
-        humidity: data.data.main.humidity,
-        wind: data.data.wind.speed,
+        name: data.name,
+        temperature: data.main.temp,
+        clouds: data.weather[0].main,
+        feelsLike: data.main.feels_like,
+        humidity: data.main.humidity,
+        wind: data.wind.speed,
       });
       setError(false);
       setLoading(false);
